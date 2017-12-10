@@ -70,6 +70,14 @@ namespace NtcCollabWebAPI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, NtcCollabDbContext dbContext)
         {
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                if (env.IsDevelopment())
+                {
+                    serviceScope.ServiceProvider.GetService<NtcCollabDbContext>().Database.Migrate();
+                }
+            }
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
