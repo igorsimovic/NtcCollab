@@ -1,0 +1,146 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>List of all available
+            <b>exercises</b>
+        </h2>
+        <ol class="breadcrumb">
+            <li>
+                <a routerLink="/home">Home</a>
+            </li>
+            <li class="active">
+                <strong>exercises</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>exercises list</h5>
+                    <div class="ibox-tools">
+                        <button (click)="onAddClick(template)" class="btn btn-primary">Add new exercise</button>
+                    </div>
+                </div>
+                <ng-template #template>
+                    <div class="modal-header">
+                        <h4 class="modal-title pull-left">Modal</h4>
+                        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        This is a modal.
+                    </div>
+                </ng-template>
+
+                <div class="ibox-content">
+                    <div class="m-b-lg">
+                        <div class="input-group">
+                            <input type="text" placeholder="Search exercise by name..." class=" form-control">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-white"> Search</button>
+                            </span>
+                        </div>
+                        <div class="m-t-md">
+                            <div class="pull-right">
+                                <button type="button" class="btn btn-sm btn-white">
+                                    <i class="fa fa-comments"></i>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-white">
+                                    <i class="fa fa-user"></i>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-white">
+                                    <i class="fa fa-list"></i>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-white">
+                                    <i class="fa fa-pencil"></i>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-white">
+                                    <i class="fa fa-print"></i>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-white">
+                                    <i class="fa fa-cogs"></i>
+                                </button>
+                            </div>
+
+                            <strong>{{exercises.length}} exercises</strong>
+
+                        </div>
+
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-hover issue-tracker">
+                            <tbody>
+                                <tr *ngFor="let exercise of exercises">
+                                    <td>
+                                        <span [ngClass]="{ 'label-primary': exercise.level === level.Beginner,
+                                                           'label-warning': exercise.level === level.Intermediate,
+                                                           'label-danger' : exercise.level === level.Advanced }" class="label">{{level[exercise.level]}}
+                                        </span>
+                                    </td>
+                                    <td class="issue-info">
+                                        <a href="#">
+                                            {{exercise.name}}
+                                        </a>
+
+                                        <small>
+                                            {{exercise.description}}
+                                        </small>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                        <span class="pie"></span>
+                                    </td>
+                                    <td class="text-right">
+                                        <button class="btn btn-white btn-xs"> Tag</button>
+                                        <button class="btn btn-white btn-xs"> Mag</button>
+                                        <button class="btn btn-white btn-xs"> Rag</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="label label-primary">Added</span>
+                                    </td>
+                                    <td class="issue-info">
+                                        <a href="#">
+                                            ISSUE-23
+                                        </a>
+
+                                        <small>
+                                            This is issue with the coresponding note
+                                        </small>
+                                    </td>
+                                    <td>
+                                        Adrian Novak
+                                    </td>
+                                    <td>
+                                        12.02.2015 10:00 am
+                                    </td>
+                                    <td>
+                                        <span class="pie">0.52,1.041</span>
+                                        2d
+                                    </td>
+                                    <td class="text-right">
+                                        <button class="btn btn-white btn-xs"> Tag</button>
+                                        <button class="btn btn-white btn-xs"> Mag</button>
+                                        <button class="btn btn-white btn-xs"> Rag</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

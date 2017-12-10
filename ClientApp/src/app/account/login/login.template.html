@@ -1,0 +1,22 @@
+<p>Login in. To see it in action.</p>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" name="" class="m-t" role="form" action="#">
+    <div class="form-group">
+        <input name="email" type="email" [(ngModel)]="loginUser.email" #first="ngModel" class="form-control" placeholder="Email" required="">
+    </div> 
+    <div class="form-group">
+        <input name="password" type="password" [(ngModel)]="loginUser.password" class="form-control" placeholder="Password" required="">
+    </div>
+    <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+
+    <a href="#">
+        <small>Forgot password?</small>
+    </a>
+    <p class="text-muted text-center">
+        <small>Do not have an account?</small>
+    </p>
+    <a [routerLink]="['/register']" class="btn btn-sm btn-white btn-block">Create an account</a>
+</form>
+<p>First name value: {{ first.value }}</p>
+<p>First name valid: {{ first.valid }}</p>
+<p>Form value: {{ f.value | json }}</p>
+<p>Form valid: {{ f.valid }}</p>
