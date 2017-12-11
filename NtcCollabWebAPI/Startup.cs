@@ -36,9 +36,10 @@ namespace NtcCollabWebAPI
                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             // ===== Add Identity ========
-            services.AddIdentity<IdentityUser, IdentityRole>()
+            services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<NtcCollabDbContext>()
-                .AddDefaultTokenProviders();
+                .AddDefaultTokenProviders()
+                .AddUserManager<UserManager<ApplicationUser>>();
 
             // ===== Add Jwt Authentication ========
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear(); // => remove default claims
