@@ -35,13 +35,13 @@ import { JwtHelperService } from '@auth0/angular-jwt';
     FormsModule,
     HttpModule,
 
-    AppRoutingModule,
     /// my modules
     LayoutsModule,
     AccountModule,
     ExercisesModule,
     DashboardsModule,
     /// end of my modules
+    AppRoutingModule,
     ModalModule.forRoot(),
     HttpClientModule,
     JwtModule.forRoot({
