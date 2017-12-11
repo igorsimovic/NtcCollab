@@ -12,6 +12,8 @@ namespace NtcCollabWebAPI.ViewModels
         public string Description { get; set; }
         public IEnumerable<MuscleGroup> MuscleGroups { get; set; }
         public ExerciseLevel Level { get; set; }
+        
+        //Video URL
 
         //Equipments
     }

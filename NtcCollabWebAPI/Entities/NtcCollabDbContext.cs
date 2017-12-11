@@ -14,6 +14,12 @@ namespace NtcCollabWebAPI.Entities
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
+
+
         public DbSet<Exercise> Exercises { get; set; }
 
         public override int SaveChanges()
